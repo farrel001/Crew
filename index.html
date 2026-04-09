@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFIWZ GANK | SMPN 3 PARE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+        :root {
+            --primary: #F5F5DC; /* Cream */
+            --bg-color: #0a0a0a;
+            --card-bg: #111111;
+            --text-white: #ffffff;
+            --text-gray: #888888;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .font-orbitron { font-family: 'Orbitron', sans-serif; }
+
+        /* Glitch Effect Cream */
+        .glitch-text {
+            text-shadow: 2px 0 var(--primary), -2px 0 #444;
+            animation: glitch 3s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 0 var(--primary), -2px 0 #222; }
+            50% { text-shadow: -2px 0 var(--primary), 2px 0 #fff; }
+            100% { text-shadow: 2px 0 var(--primary), -2px 0 #222; }
+        }
+
+        /* Top Corner Creator Button */
+        .creator-btn-top {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 150;
+            background: rgba(245, 245, 220, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .creator-btn-top:hover {
+            border-color: var(--primary);
+            background: rgba(245, 245, 220, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .creator-btn-top span {
+            font-family: 'Orbitron';
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: var(--primary);
+        }
+
+        /* Floating Navigation Bottom */
+        .menu-container {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .menu {
+            backdrop-filter: blur(15px);
+            background: rgba(245, 245, 220, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 99rem;
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-gray);
+            padding: 8px 16px;
+            border-radius: 99rem;
+            transition: all 0.3s ease;
+            background: transparent;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            color: var(--primary);
+            background: rgba(245, 245, 220, 0.1);
+        }
+
+        .menu span { font-size: 0.6rem; font-weight: 700; margin-top: 4px; font-family: 'Orbitron'; letter-spacing: 1px; }
+
+        /* Member Card Design */
+        .member-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(245, 245, 220, 0.1);
+        }
+
+        .avatar-box {
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .member-card img {
+            transition: all 0.5s ease;
+            filter: grayscale(40%);
+        }
+
+        .member-card:hover img {
+            transform: scale(1.1);
+            filter: grayscale(0%) brightness(1.1);
+        }
+
+        /* Modal */
+        #creator-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(15px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Corner Creator Button -->
+    <button class="creator-btn-top" onclick="toggleCreatorModal()">
+        <i class="fas fa-user-ninja text-primary"></i>
+        <span>PEMBUAT</span>
+    </button>
+
+    <!-- Navigation Bottom -->
+    <div class="menu-container text-white">
+        <nav class="menu">
+            <a href="#home">
+                <i class="fas fa-home"></i>
+                <span>HOME</span>
+            </a>
+            <a href="#members">
+                <i class="fas fa-users"></i>
+                <span>CREW</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Modal Pembuat -->
+    <div id="creator-modal" onclick="toggleCreatorModal()">
+        <div class="bg-[#111] p-10 rounded-3xl border border-primary/20 w-80 text-center shadow-2xl" onclick="event.stopPropagation()">
+            <div class="w-24 h-24 mx-auto mb-6 bg-white/5 rounded-2xl overflow-hidden border border-white/10 p-2">
+                <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Farrel" alt="Farrel" class="w-full h-full object-contain">
+            </div>
+            <h4 class="font-orbitron text-primary text-xl mb-1 uppercase">Farrel</h4>
+            <p class="text-gray-500 text-[10px] mb-8 tracking-[0.3em] uppercase">Web Architect</p>
+            <p class="text-white/40 text-[9px] mb-8 font-semibold italic">SMPN 3 PARE</p>
+            <button onclick="toggleCreatorModal()" class="w-full py-3 bg-primary text-black font-bold rounded-xl text-xs font-orbitron hover:bg-white transition">TUTUP</button>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative px-6">
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
+            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white rounded-full blur-[120px]"></div>
+        </div>
+
+        <div class="text-center z-10 flex flex-col items-center">
+            <h2 class="text-primary font-orbitron tracking-[0.6em] text-[10px] md:text-xs mb-8 animate-pulse uppercase">OFFICIAL STUDENT CREW • SMPN 3 PARE</h2>
+            <h1 class="text-8xl md:text-[10rem] font-bold font-orbitron mb-8 glitch-text tracking-tighter italic">AFIWZ</h1>
+            <p class="text-gray-500 max-w-lg mx-auto text-xs md:text-sm mb-12 uppercase tracking-[0.4em] leading-relaxed">
+                Loyalty is everything • No Hierarchy • Just Family
+            </p>
+            <div class="flex justify-center">
+                <a href="#members" class="border border-primary/20 hover:border-primary text-primary px-10 py-4 rounded-full font-orbitron text-[10px] tracking-[0.3em] transition-all hover:bg-primary hover:text-black">
+                    MASUK WILAYAH
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crew Section -->
+    <section id="members" class="py-32 bg-[#050505]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-24">
+                <h2 class="text-white font-orbitron text-4xl font-bold mb-4 italic uppercase">Anggota Elit</h2>
+                <div class="w-20 h-1 bg-primary mx-auto opacity-50"></div>
+                <p class="text-gray-600 text-[10px] mt-4 tracking-[0.2em] uppercase">The Core of AFIWZ • SPENTIGA</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- Adi -->
+                <div class="member-card p-8 rounded-3xl text-center group">
+                    <div class="avatar-box w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center p-2">
+                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Adi" alt="Adi" class="w-full h-full">
+                    </div>
+                    <h4 class="font-orbitron text-lg font-bold mb-1">ADI</h4>
+                    <p class="text-gray-600 text-[9px] tracking-[0.3em] uppercase">Anggota Elit</p>
+                </div>
+
+                <!-- Farrel -->
+                <div class="member-card p-8 rounded-3xl text-center group">
+                    <div class="avatar-box w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center p-2">
+                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Farrel" alt="Farrel" class="w-full h-full">
+                    </div>
+                    <h4 class="font-orbitron text-lg font-bold mb-1">FARREL</h4>
+                    <p class="text-gray-600 text-[9px] tracking-[0.3em] uppercase">Anggota Elit</p>
+                </div>
+
+                <!-- Wildan -->
+                <div class="member-card p-8 rounded-3xl text-center group">
+                    <div class="avatar-box w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center p-2">
+                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Wildan" alt="Wildan" class="w-full h-full">
+                    </div>
+                    <h4 class="font-orbitron text-lg font-bold mb-1">WILDAN</h4>
+                    <p class="text-gray-600 text-[9px] tracking-[0.3em] uppercase">Anggota Elit</p>
+                </div>
+
+                <!-- Zidan -->
+                <div class="member-card p-8 rounded-3xl text-center group">
+                    <div class="avatar-box w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center p-2">
+                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Zidan" alt="Zidan" class="w-full h-full">
+                    </div>
+                    <h4 class="font-orbitron text-lg font-bold mb-1 text-white">ZIDAN</h4>
+                    <p class="text-gray-600 text-[9px] tracking-[0.3em] uppercase">Anggota Elit</p>
+                </div>
+
+                <!-- Izam -->
+                <div class="member-card p-8 rounded-3xl text-center group">
+                    <div class="avatar-box w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center p-2">
+                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Izam" alt="Izam" class="w-full h-full">
+                    </div>
+                    <h4 class="font-orbitron text-lg font-bold mb-1">IZAM</h4>
+                    <p class="text-gray-600 text-[9px] tracking-[0.3em] uppercase">Anggota Elit</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-24 border-t border-white/5 text-center">
+        <div class="text-3xl font-orbitron font-bold text-white mb-6 italic tracking-tighter">
+            AFIWZ<span class="text-primary">GANK</span>
+        </div>
+        <p class="text-primary font-orbitron text-[10px] tracking-[0.5em] mb-8 uppercase">SMPN 3 PARE (SPENTIGA)</p>
+        <div class="flex justify-center space-x-8 mb-12 text-gray-500 text-sm">
+            <a href="#" class="hover:text-primary transition"><i class="fab fa-discord"></i></a>
+            <a href="#" class="hover:text-primary transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="hover:text-primary transition"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p class="text-gray-700 text-[10px] uppercase tracking-[0.8em]">Property of AFIWZ Official • Built by Farrel • Sejak 2024</p>
+    </footer>
+
+    <script>
+        function toggleCreatorModal() {
+            const modal = document.getElementById('creator-modal');
+            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('creator-modal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+  </html>
