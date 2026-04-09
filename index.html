@@ -2,301 +2,615 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AFIWZ GANK | SMPN 3 PARE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>AFIWZ GANK | SMPN 3 PARE — Grey Steel Line Art Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap');
 
-        :root {
-            --primary: #F5F5DC; /* Cream */
-            --bg-color: #0a0a0a;
-            --card-bg: #111111;
-            --text-white: #ffffff;
-            --text-gray: #888888;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-white);
+            background: #eef2f5;
+            color: #1e2a32;
             font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        .font-orbitron { font-family: 'Orbitron', sans-serif; }
-
-        /* Glitch Effect Cream */
-        .glitch-text {
-            text-shadow: 2px 0 var(--primary), -2px 0 #444;
-            animation: glitch 3s infinite linear alternate-reverse;
-        }
-
-        @keyframes glitch {
-            0% { text-shadow: 2px 0 var(--primary), -2px 0 #222; }
-            50% { text-shadow: -2px 0 var(--primary), 2px 0 #fff; }
-            100% { text-shadow: 2px 0 var(--primary), -2px 0 #222; }
-        }
-
-        /* Top Corner Creator Button */
-        .creator-btn-top {
+        /* subtle noise overlay */
+        body::before {
+            content: "";
             position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 150;
-            background: rgba(245, 245, 220, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 10px 20px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .creator-btn-top:hover {
-            border-color: var(--primary);
-            background: rgba(245, 245, 220, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .creator-btn-top span {
-            font-family: 'Orbitron';
-            font-size: 0.7rem;
-            letter-spacing: 1px;
-            color: var(--primary);
-        }
-
-        /* Floating Navigation Bottom */
-        .menu-container {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
+            top: 0;
+            left: 0;
             width: 100%;
-            display: flex;
-            justify-content: center;
-            padding: 0 20px;
+            height: 100%;
+            pointer-events: none;
+            background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+            z-index: 9999;
+            opacity: 0.5;
         }
 
-        .menu {
-            backdrop-filter: blur(15px);
-            background: rgba(245, 245, 220, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 8px 16px;
-            border-radius: 99rem;
-            display: flex;
-            gap: 20px;
-        }
-
-        .menu a {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: var(--text-gray);
-            padding: 8px 16px;
-            border-radius: 99rem;
+        /* Member Card abu profesional dengan LINE ART STYLE (sketsa garis tipis) */
+        .member-pro {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 24px;
             transition: all 0.3s ease;
-            background: transparent;
-            text-decoration: none;
-        }
-
-        .menu a:hover {
-            color: var(--primary);
-            background: rgba(245, 245, 220, 0.1);
-        }
-
-        .menu span { font-size: 0.6rem; font-weight: 700; margin-top: 4px; font-family: 'Orbitron'; letter-spacing: 1px; }
-
-        /* Member Card Design */
-        .member-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
             position: relative;
             overflow: hidden;
         }
-
-        .member-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(245, 245, 220, 0.1);
+        
+        /* LINE ART DECORATION - elegant sketch border & geometric lines */
+        .member-pro::before {
+            content: "";
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            border: 1px solid #94a3b8;
+            border-radius: 16px;
+            pointer-events: none;
+            opacity: 0.25;
+            transition: opacity 0.2s ease;
+            z-index: 1;
+        }
+        
+        /* additional diagonal line art accent (atas kiri) */
+        .member-pro::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            border-top: 2px solid #cbd5e1;
+            border-left: 2px solid #cbd5e1;
+            border-radius: 20px 0 0 0;
+            pointer-events: none;
+            opacity: 0.4;
+            transition: all 0.2s;
+            z-index: 1;
+        }
+        
+        /* garis bawah kanan (line art detail) */
+        .member-pro .line-art-corner {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            width: 30px;
+            height: 30px;
+            border-bottom: 1.5px solid #94a3b8;
+            border-right: 1.5px solid #94a3b8;
+            border-radius: 0 0 12px 0;
+            pointer-events: none;
+            opacity: 0.35;
+            transition: 0.2s;
+            z-index: 1;
+        }
+        
+        .member-pro:hover::before {
+            opacity: 0.6;
+            border-color: #475569;
+        }
+        
+        .member-pro:hover::after {
+            opacity: 0.7;
+            width: 50px;
+            height: 50px;
+            border-top-color: #475569;
+            border-left-color: #475569;
+        }
+        
+        .member-pro:hover .line-art-corner {
+            opacity: 0.7;
+            width: 40px;
+            height: 40px;
+            border-bottom-color: #475569;
+            border-right-color: #475569;
+        }
+        
+        .member-pro:hover {
+            border-color: #94a3b8;
+            transform: translateY(-5px);
+            background: #ffffff;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
+        }
+        
+        /* Avatar dengan sentuhan line art (border sketch) */
+        .avatar-pro {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.2s;
+        }
+        
+        /* core line art di sekitar avatar */
+        .avatar-pro::after {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            border: 1px dashed #cbd5e6;
+            border-radius: 22px;
+            pointer-events: none;
+            opacity: 0.4;
+            transition: 0.2s;
+        }
+        
+        .member-pro:hover .avatar-pro::after {
+            opacity: 0.8;
+            border: 1px solid #64748b;
+        }
+        
+        .member-pro img {
+            filter: grayscale(12%) contrast(1.02);
+            transition: 0.3s;
+        }
+        .member-pro:hover img {
+            filter: grayscale(0%) contrast(1.05);
+            transform: scale(1.02);
         }
 
-        .avatar-box {
-            background: #1a1a1a;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
+        /* navigation abu premium */
+        .nav-professional {
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(16px);
+            border: 1px solid #cbd5e1;
+            border-radius: 60px;
+            padding: 6px 12px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+        }
+        .nav-professional a {
+            color: #334155;
+            transition: 0.2s;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        .nav-professional a:hover {
+            color: white;
+            background: #1e293b;
+        }
+
+        /* Buttons */
+        .btn-primary-grey {
+            background: #1e293b;
+            color: white;
+            border: none;
+            transition: 0.2s;
+            font-weight: 600;
+        }
+        .btn-primary-grey:hover {
+            background: #0f172a;
+            transform: scale(0.98);
+        }
+
+        /* Typography */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #0f172a;
+        }
+        @media (min-width: 768px) {
+            .section-title { font-size: 3rem; }
+        }
+
+        .divider-grey {
+            width: 50px;
+            height: 2px;
+            background: #334155;
+            opacity: 0.35;
+        }
+
+        /* creator button grey */
+        .creator-prof {
+            background: rgba(255,255,255,0.9);
+            border: 1px solid #cbd5e1;
+            backdrop-filter: blur(8px);
+            transition: 0.2s;
+            color: #1e293b;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .creator-prof:hover {
+            border-color: #64748b;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        /* modal modern grey */
+        .modal-modern {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 32px;
+            color: #0f172a;
+            box-shadow: 0 25px 40px -12px rgba(0,0,0,0.2);
+        }
+
+        /* Custom header landscape */
+        .hero-visual-header {
+            position: relative;
+            width: 100%;
+            background: transparent;
             overflow: hidden;
         }
-
-        .member-card img {
-            transition: all 0.5s ease;
-            filter: grayscale(40%);
+        .landscape-frame {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.12);
+            border: 1px solid #d1d9e8;
+            transition: all 0.3s;
+            background: #f8fafc;
+        }
+        .landscape-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .landscape-frame:hover img {
+            transform: scale(1.01);
         }
 
-        .member-card:hover img {
-            transform: scale(1.1);
-            filter: grayscale(0%) brightness(1.1);
+        /* Hero grey gradient */
+        .hero-grey-bg {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e4e9f0 100%);
         }
 
-        /* Modal */
-        #creator-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.95);
-            z-index: 200;
-            align-items: center;
+        /* scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 10px;
+        }
+
+        footer {
+            background: #f1f5f9;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* ELEMEN BULAT DIPERKECIL */
+        .rounded-ornament {
+            position: absolute;
+            top: 8%;
+            left: 3%;
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            z-index: 15;
+            pointer-events: auto;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.15);
+            border: 2px solid rgba(255,255,255,0.7);
+            background: #f8fafc;
+        }
+        .rounded-ornament img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .rounded-ornament:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px -8px rgba(0,0,0,0.25);
+            border-color: white;
+        }
+        .rounded-ornament:hover img {
+            transform: scale(1.02);
+        }
+        
+        .rounded-ornament-small {
+            position: absolute;
+            bottom: 15%;
+            right: 4%;
+            width: 70px;
+            height: 70px;
+            background: rgba(51, 65, 85, 0.06);
+            border-radius: 50%;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(51, 65, 85, 0.2);
+            pointer-events: none;
+            z-index: 5;
+        }
+        
+        @media (max-width: 768px) {
+            .rounded-ornament {
+                width: 60px;
+                height: 60px;
+                top: 4%;
+                left: 2%;
+            }
+            .rounded-ornament-small {
+                width: 45px;
+                height: 45px;
+                bottom: 10%;
+                right: 3%;
+            }
+        }
+
+        /* AFIWZ GANK text - FIXED TIDAK BERTUMPUK */
+        .hero-title {
+            font-size: 5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        
+        .hero-title span {
+            display: inline-block;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 6.5rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 8rem;
+            }
+        }
+        
+        /* Responsive: jika layar terlalu kecil, turunkan ukuran agar tidak tumpuk */
+        @media (max-width: 550px) {
+            .hero-title {
+                font-size: 3.5rem;
+                letter-spacing: -0.01em;
+                white-space: normal;
+                word-break: keep-all;
+            }
+            .hero-title br {
+                display: none;
+            }
+        }
+        
+        /* Container judul agar tidak overflow */
+        .title-wrapper {
+            display: flex;
             justify-content: center;
-            backdrop-filter: blur(15px);
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.15em;
+        }
+        
+        /* tambahan style untuk line art text pada member name (opsional) */
+        .member-name-sketch {
+            position: relative;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Corner Creator Button -->
-    <button class="creator-btn-top" onclick="toggleCreatorModal()">
-        <i class="fas fa-user-ninja text-primary"></i>
-        <span>PEMBUAT</span>
+    <!-- Top Creator Button (grey mode) -->
+    <button class="creator-prof fixed top-5 right-5 z-[150] flex items-center gap-2 px-4 py-2 rounded-full text-[11px] font-medium tracking-wide cursor-pointer" onclick="toggleCreatorModal()">
+        <i class="fa-regular fa-user"></i>
+        <span>CREATOR</span>
     </button>
 
-    <!-- Navigation Bottom -->
-    <div class="menu-container text-white">
-        <nav class="menu">
-            <a href="#home">
-                <i class="fas fa-home"></i>
-                <span>HOME</span>
-            </a>
-            <a href="#members">
-                <i class="fas fa-users"></i>
-                <span>CREW</span>
-            </a>
-        </nav>
-    </div>
-
-    <!-- Modal Pembuat -->
-    <div id="creator-modal" onclick="toggleCreatorModal()">
-        <div class="bg-[#111] p-10 rounded-3xl border border-primary/20 w-80 text-center shadow-2xl" onclick="event.stopPropagation()">
-            <div class="w-24 h-24 mx-auto mb-6 bg-white/5 rounded-2xl overflow-hidden border border-white/10 p-2">
-                <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Farrel" alt="Farrel" class="w-full h-full object-contain">
+    <!-- Modal Creator -->
+    <div id="creator-modal" class="fixed inset-0 bg-black/30 z-[200] hidden items-center justify-center backdrop-blur-sm" onclick="toggleCreatorModal()">
+        <div class="modal-modern w-80 p-7 text-center" onclick="event.stopPropagation()">
+            <div class="w-24 h-24 mx-auto mb-4 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100">
+                <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Farrel" alt="Farrel" class="w-full h-full object-cover">
             </div>
-            <h4 class="font-orbitron text-primary text-xl mb-1 uppercase">Farrel</h4>
-            <p class="text-gray-500 text-[10px] mb-8 tracking-[0.3em] uppercase">Web Architect</p>
-            <p class="text-white/40 text-[9px] mb-8 font-semibold italic">SMPN 3 PARE</p>
-            <button onclick="toggleCreatorModal()" class="w-full py-3 bg-primary text-black font-bold rounded-xl text-xs font-orbitron hover:bg-white transition">TUTUP</button>
+            <h3 class="text-xl font-bold tracking-tight">FARREL</h3>
+            <p class="text-[10px] text-slate-500 font-mono mt-1">PRINCIPAL ARCHITECT</p>
+            <div class="w-10 h-px bg-slate-300 mx-auto my-4"></div>
+            <p class="text-slate-400 text-[9px] uppercase tracking-wider">SMPN 3 PARE • SPENTIGA</p>
+            <button onclick="toggleCreatorModal()" class="mt-6 w-full py-2.5 bg-slate-800 text-white text-xs font-bold rounded-xl hover:bg-slate-700 transition">TUTUP</button>
         </div>
     </div>
 
-    <!-- Hero -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative px-6">
-        <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
-            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary rounded-full blur-[120px]"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-white rounded-full blur-[120px]"></div>
+    <!-- Floating Navigation Professional (grey) -->
+    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+        <div class="nav-professional flex items-center gap-1">
+            <a href="#home" class="text-xs font-medium"><i class="fas fa-home mr-2"></i>HOME</a>
+            <a href="#members" class="text-xs font-medium"><i class="fas fa-users mr-2"></i>CREW</a>
         </div>
+    </div>
 
-        <div class="text-center z-10 flex flex-col items-center">
-            <h2 class="text-primary font-orbitron tracking-[0.6em] text-[10px] md:text-xs mb-8 animate-pulse uppercase">OFFICIAL STUDENT CREW • SMPN 3 PARE</h2>
-            <h1 class="text-8xl md:text-[10rem] font-bold font-orbitron mb-8 glitch-text tracking-tighter italic">AFIWZ</h1>
-            <p class="text-gray-500 max-w-lg mx-auto text-xs md:text-sm mb-12 uppercase tracking-[0.4em] leading-relaxed">
+    <!-- Hero Section dengan tema abu-abu, landscape header -->
+    <section id="home" class="min-h-screen flex flex-col items-center justify-center px-6 relative hero-grey-bg overflow-hidden">
+        
+        <!-- ELEMEN BULAT DENGAN GAMBAR (UKURAN DIPERKECIL) -->
+        <div class="rounded-ornament">
+            <img src="https://image2url.com/r2/default/images/1775739653393-84d54867-5799-4be3-bac5-6b03e8c13fc6.png" alt="Logo Bulat AFIWZ">
+        </div>
+        <div class="rounded-ornament-small"></div>
+        
+        <div class="relative z-10 text-center max-w-5xl mx-auto w-full">
+            <!-- LANDSCAPE HEADER : foto landscape premium -->
+            <div class="hero-visual-header mb-10 w-full">
+                <div class="landscape-frame">
+                    <img id="landscapePhoto" src="https://image2url.com/r2/default/images/1775738999827-c2d782f6-857f-44c3-be24-54b8deca65ab.jpg" alt="Landscape Visual" class="w-full">
+                </div>
+            </div>
+            
+            <!-- Official Student Collective badge abu -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-300 bg-white/70 backdrop-blur-sm mb-6">
+                <span class="w-1.5 h-1.5 bg-slate-700 rounded-full"></span>
+                <span class="text-[9px] font-mono tracking-[0.2em] text-slate-600">OFFICIAL STUDENT COLLECTIVE</span>
+            </div>
+            
+            <!-- AFIWZ GANK - TIDAK BERTUMPUK, MENGGUNAKAN FLEX WRAP -->
+            <div class="title-wrapper">
+                <h1 class="hero-title font-black tracking-tighter uppercase text-slate-900">
+                    AFIWZ<span class="text-slate-400">GANK</span>
+                </h1>
+            </div>
+            <div class="divider-grey mx-auto my-6"></div>
+            <p class="text-slate-500 text-xs md:text-sm font-light tracking-[0.2em] uppercase max-w-md mx-auto">
                 Loyalty is everything • No Hierarchy • Just Family
             </p>
-            <div class="flex justify-center">
-                <a href="#members" class="border border-primary/20 hover:border-primary text-primary px-10 py-4 rounded-full font-orbitron text-[10px] tracking-[0.3em] transition-all hover:bg-primary hover:text-black">
-                    MASUK WILAYAH
+            <div class="mt-10">
+                <a href="#members" class="btn-primary-grey inline-flex items-center gap-2 px-7 py-3 rounded-full text-xs font-bold tracking-wide">
+                    <span>EXPLORE THE CREW</span>
+                    <i class="fas fa-arrow-right text-[10px]"></i>
                 </a>
             </div>
         </div>
+        <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-[#eef2f5]/80 to-transparent"></div>
     </section>
 
-    <!-- Crew Section -->
-    <section id="members" class="py-32 bg-[#050505]">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-24">
-                <h2 class="text-white font-orbitron text-4xl font-bold mb-4 italic uppercase">Anggota Elit</h2>
-                <div class="w-20 h-1 bg-primary mx-auto opacity-50"></div>
-                <p class="text-gray-600 text-[10px] mt-4 tracking-[0.2em] uppercase">The Core of AFIWZ • SPENTIGA</p>
+    <!-- Crew Section Professional (grey accent) dengan LINE ART pada setiap card anggota -->
+    <section id="members" class="py-24 px-6 bg-[#f8fafd]">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-14">
+                <h2 class="section-title uppercase tracking-tight">ELITE <span class="text-slate-400">FORCE</span></h2>
+                <div class="divider-grey mx-auto my-4"></div>
+                <p class="text-slate-400 text-[10px] font-mono tracking-[0.3em] uppercase">THE CORE OF AFIWZ • SMPN 3 PARE</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-                <!-- Adi -->
-                <div class="member-card p-8 rounded-3xl text-center group">
-                    <div class="avatar-box w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center p-2">
-                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Adi" alt="Adi" class="w-full h-full">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+                <!-- ADI card with LINE ART elements -->
+                <div class="member-pro p-5 text-center relative">
+                    <div class="line-art-corner"></div> <!-- additional line art corner -->
+                    <div class="avatar-pro w-24 h-24 mx-auto mb-4 flex items-center justify-center relative">
+                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Adi" alt="Adi" class="w-full h-full object-cover">
                     </div>
-                    <h4 class="font-orbitron text-lg font-bold mb-1">ADI</h4>
-                    <p class="text-gray-600 text-[9px] tracking-[0.3em] uppercase">Crew</p>
+                    <h4 class="text-lg font-bold tracking-tight text-slate-800 relative inline-block">
+                        ADI
+                        <!-- subtle line under name (line art detail) -->
+                        <span class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-6 h-px bg-slate-300 opacity-50"></span>
+                    </h4>
+                    <p class="text-[9px] text-slate-400 font-mono mt-2 uppercase tracking-wider">CORE MEMBER</p>
                 </div>
-
-                <!-- Farrel -->
-                <div class="member-card p-8 rounded-3xl text-center group">
-                    <div class="avatar-box w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center p-2">
-                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Farrel" alt="Farrel" class="w-full h-full">
+                <!-- FARREL card -->
+                <div class="member-pro p-5 text-center relative">
+                    <div class="line-art-corner"></div>
+                    <div class="avatar-pro w-24 h-24 mx-auto mb-4 flex items-center justify-center relative">
+                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Farrel" alt="Farrel" class="w-full h-full object-cover">
                     </div>
-                    <h4 class="font-orbitron text-lg font-bold mb-1">FARREL</h4>
-                    <p class="text-gray-600 text-[9px] tracking-[0.3em] uppercase">Anggota Elit</p>
+                    <h4 class="text-lg font-bold tracking-tight text-slate-800 relative inline-block">
+                        FARREL
+                        <span class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-6 h-px bg-slate-300 opacity-50"></span>
+                    </h4>
+                    <p class="text-[9px] text-slate-400 font-mono mt-2 uppercase tracking-wider">CORE MEMBER</p>
                 </div>
-
-                <!-- Wildan -->
-                <div class="member-card p-8 rounded-3xl text-center group">
-                    <div class="avatar-box w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center p-2">
-                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Wildan" alt="Wildan" class="w-full h-full">
+                <!-- WILDAN card -->
+                <div class="member-pro p-5 text-center relative">
+                    <div class="line-art-corner"></div>
+                    <div class="avatar-pro w-24 h-24 mx-auto mb-4 flex items-center justify-center relative">
+                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Wildan" alt="Wildan" class="w-full h-full object-cover">
                     </div>
-                    <h4 class="font-orbitron text-lg font-bold mb-1">WILDAN</h4>
-                    <p class="text-gray-600 text-[9px] tracking-[0.3em] uppercase">Anggota Elit</p>
+                    <h4 class="text-lg font-bold tracking-tight text-slate-800 relative inline-block">
+                        WILDAN
+                        <span class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-6 h-px bg-slate-300 opacity-50"></span>
+                    </h4>
+                    <p class="text-[9px] text-slate-400 font-mono mt-2 uppercase tracking-wider">CORE MEMBER</p>
                 </div>
-
-                <!-- Zidan -->
-                <div class="member-card p-8 rounded-3xl text-center group">
-                    <div class="avatar-box w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center p-2">
-                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Zidan" alt="Zidan" class="w-full h-full">
+                <!-- ZIDAN card -->
+                <div class="member-pro p-5 text-center relative">
+                    <div class="line-art-corner"></div>
+                    <div class="avatar-pro w-24 h-24 mx-auto mb-4 flex items-center justify-center relative">
+                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Zidan" alt="Zidan" class="w-full h-full object-cover">
                     </div>
-                    <h4 class="font-orbitron text-lg font-bold mb-1 text-white">ZIDAN</h4>
-                    <p class="text-gray-600 text-[9px] tracking-[0.3em] uppercase">Anggota Elit</p>
+                    <h4 class="text-lg font-bold tracking-tight text-slate-800 relative inline-block">
+                        ZIDAN
+                        <span class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-6 h-px bg-slate-300 opacity-50"></span>
+                    </h4>
+                    <p class="text-[9px] text-slate-400 font-mono mt-2 uppercase tracking-wider">CORE MEMBER</p>
                 </div>
-
-                <!-- Izam -->
-                <div class="member-card p-8 rounded-3xl text-center group">
-                    <div class="avatar-box w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center p-2">
-                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Izam" alt="Izam" class="w-full h-full">
+                <!-- IZAM card -->
+                <div class="member-pro p-5 text-center relative">
+                    <div class="line-art-corner"></div>
+                    <div class="avatar-pro w-24 h-24 mx-auto mb-4 flex items-center justify-center relative">
+                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Izam" alt="Izam" class="w-full h-full object-cover">
                     </div>
-                    <h4 class="font-orbitron text-lg font-bold mb-1">IZAM</h4>
-                    <p class="text-gray-600 text-[9px] tracking-[0.3em] uppercase">Anggota Elit</p>
+                    <h4 class="text-lg font-bold tracking-tight text-slate-800 relative inline-block">
+                        IZAM
+                        <span class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-6 h-px bg-slate-300 opacity-50"></span>
+                    </h4>
+                    <p class="text-[9px] text-slate-400 font-mono mt-2 uppercase tracking-wider">CORE MEMBER</p>
                 </div>
+            </div>
+            
+            <!-- tambahan deskripsi line art minimalis -->
+            <div class="flex justify-center items-center gap-3 mt-12">
+                <div class="h-px w-8 bg-slate-300"></div>
+                <p class="text-[8px] tracking-[0.2em] text-slate-400 uppercase font-mono">sketch geometry • line art precision</p>
+                <div class="h-px w-8 bg-slate-300"></div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-24 border-t border-white/5 text-center">
-        <div class="text-3xl font-orbitron font-bold text-white mb-6 italic tracking-tighter">
-            AFIWZ<span class="text-primary">GANK</span>
+    <!-- Quote Section (grey) -->
+    <section class="py-16 border-t border-slate-200 bg-white/50">
+        <div class="container mx-auto px-6 text-center">
+            <i class="fa-regular fa-message text-slate-300 text-2xl mb-4"></i>
+            <p class="text-slate-500 text-sm max-w-2xl mx-auto font-light italic">
+                “Solidaritas tanpa batas. Dari SMPN 3 PARE untuk selamanya.”
+            </p>
         </div>
-        <p class="text-primary font-orbitron text-[10px] tracking-[0.5em] mb-8 uppercase">SMPN 3 PARE (SPENTIGA)</p>
-        <div class="flex justify-center space-x-8 mb-12 text-gray-500 text-sm">
-            <a href="#" class="hover:text-primary transition"><i class="fab fa-discord"></i></a>
-            <a href="#" class="hover:text-primary transition"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="hover:text-primary transition"><i class="fab fa-tiktok"></i></a>
+    </section>
+
+    <!-- Footer (grey) -->
+    <footer class="py-16 bg-[#f1f5f9] border-t border-slate-200">
+        <div class="container mx-auto px-6 text-center">
+            <div class="text-3xl font-black tracking-tighter mb-3 text-slate-800">AFIWZ<span class="text-slate-300">GANK</span></div>
+            <div class="h-px w-12 bg-slate-300 mx-auto my-4"></div>
+            <p class="text-slate-400 text-[9px] font-mono tracking-[0.3em] uppercase">SMPN 3 PARE (SPENTIGA)</p>
+            <div class="flex justify-center gap-6 text-slate-400 text-sm my-6">
+                <a href="#" class="hover:text-slate-700 transition"><i class="fab fa-discord"></i></a>
+                <a href="#" class="hover:text-slate-700 transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-slate-700 transition"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <p class="text-slate-300 text-[8px] tracking-[0.3em] uppercase">PROPERTY OF AFIWZ OFFICIAL • GREY STEEL LINE ART EDITION</p>
         </div>
-        <p class="text-gray-700 text-[10px] uppercase tracking-[0.8em]">Property of AFIWZ Official • Built by Farrel •</p>
     </footer>
 
     <script>
+        // Modal Creator
         function toggleCreatorModal() {
             const modal = document.getElementById('creator-modal');
-            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+            if (modal.style.display === 'flex') modal.style.display = 'none';
+            else modal.style.display = 'flex';
         }
-
-        window.onclick = function(event) {
+        window.onclick = function(e) {
             const modal = document.getElementById('creator-modal');
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
+            if (e.target === modal) modal.style.display = 'none';
         }
+        
+        // Optional: jika gambar gagal load, fallback ke placeholder
+        const roundedImg = document.querySelector('.rounded-ornament img');
+        if (roundedImg) {
+            roundedImg.onerror = function() {
+                this.src = 'https://placehold.co/200x200/e2e8f0/64748b?text=AFIWZ';
+            };
+        }
+        
+        // Fallback untuk semua avatar jika dicebear error (tidak perlu karena dicebear aman)
+        const allAvatars = document.querySelectorAll('.avatar-pro img');
+        allAvatars.forEach(img => {
+            img.onerror = function() {
+                this.src = 'https://api.dicebear.com/7.x/notionists/svg?seed=default';
+            };
+        });
     </script>
 </body>
-  </html>
+    </html>
