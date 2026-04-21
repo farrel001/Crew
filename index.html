@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Akses Diblokir</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .box {
+        background: #fff;
+        padding: 30px;
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        color: red;
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    p {
+        color: #333;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: red;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background: darkred;
+    }
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h1>AKSES INTERNET POSITIF</h1>
+
+    <p>
+        Halaman yang Anda coba akses telah diblokir oleh sistem
+        Kementerian Komunikasi dan Digital Republik Indonesia.
+    </p>
+
+    <p>
+        Akses terhadap situs ini dibatasi karena terindikasi
+        melanggar kebijakan penggunaan internet yang berlaku.
+    </p>
+
+    <button class="btn" onclick="alert('Permintaan sedang diproses...')">
+        Ajukan Banding
+    </button>
+</div>
+
+<script>
+// auto fullscreen biar lebih niat
+document.documentElement.requestFullscreen();
+</script>
+
+</body>
+</html>
