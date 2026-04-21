@@ -2,77 +2,125 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Akses Diblokir</title>
+<title>Internet Positif</title>
 <style>
     body {
         margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f5f5f5;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #e9eef3;
+    }
+
+    .header {
+        background: #003366;
+        color: white;
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .header img {
+        height: 40px;
+        margin-right: 15px;
+    }
+
+    .header h2 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .container {
         display: flex;
         justify-content: center;
-        align-items: center;
-        height: 100vh;
+        margin-top: 50px;
     }
 
-    .box {
-        background: #fff;
-        padding: 30px;
+    .card {
+        background: white;
         width: 90%;
-        max-width: 500px;
-        text-align: center;
-        border-radius: 10px;
-        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        max-width: 600px;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    h1 {
-        color: red;
-        font-size: 22px;
+    .title {
+        color: #cc0000;
+        font-size: 24px;
+        font-weight: bold;
         margin-bottom: 15px;
+    }
+
+    .line {
+        height: 3px;
+        background: #cc0000;
+        width: 60px;
+        margin-bottom: 20px;
     }
 
     p {
         color: #333;
         font-size: 14px;
-        line-height: 1.5;
+        line-height: 1.6;
+    }
+
+    .footer {
+        margin-top: 30px;
+        font-size: 12px;
+        color: #777;
     }
 
     .btn {
         margin-top: 20px;
         padding: 10px 20px;
-        background: red;
+        background: #003366;
         color: white;
         border: none;
-        border-radius: 5px;
+        border-radius: 4px;
         cursor: pointer;
     }
 
     .btn:hover {
-        background: darkred;
+        background: #002244;
     }
 </style>
 </head>
 <body>
 
-<div class="box">
-    <h1>AKSES INTERNET POSITIF</h1>
+<div class="header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Kominfo_Logo.png/600px-Kominfo_Logo.png">
+    <h2>Kementerian Komunikasi dan Digital RI</h2>
+</div>
 
-    <p>
-        Halaman yang Anda coba akses telah diblokir oleh sistem
-        Kementerian Komunikasi dan Digital Republik Indonesia.
-    </p>
+<div class="container">
+    <div class="card">
+        <div class="title">AKSES INTERNET POSITIF</div>
+        <div class="line"></div>
 
-    <p>
-        Akses terhadap situs ini dibatasi karena terindikasi
-        melanggar kebijakan penggunaan internet yang berlaku.
-    </p>
+        <p>
+            Situs yang Anda coba akses saat ini tidak dapat ditampilkan karena telah diblokir oleh sistem Internet Positif.
+        </p>
 
-    <button class="btn" onclick="alert('Permintaan sedang diproses...')">
-        Ajukan Banding
-    </button>
+        <p>
+            Hal ini dilakukan sesuai dengan peraturan perundang-undangan yang berlaku di wilayah Republik Indonesia.
+        </p>
+
+        <p>
+            Untuk informasi lebih lanjut, silakan hubungi penyedia layanan internet Anda.
+        </p>
+
+        <button class="btn" onclick="alert('Permintaan Anda sedang diproses...')">
+            Ajukan Banding
+        </button>
+
+        <div class="footer">
+            © Kementerian Komunikasi dan Digital Republik Indonesia
+        </div>
+    </div>
 </div>
 
 <script>
-// auto fullscreen biar lebih niat
+// fullscreen biar makin real
 document.documentElement.requestFullscreen();
 </script>
 
